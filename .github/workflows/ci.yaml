@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: if cmp -s res_pr4_test.txt res_pr4_test_et.txt; 
           then echo "Test passed";
-          else echo res_pr4_test.txt && echo res_pr4_test_et.txt;
+          else cat res_pr4_test.txt && echo !!!!!!!! && cat res_pr4_test_et.txt;
           fi
         shell: sh
       
