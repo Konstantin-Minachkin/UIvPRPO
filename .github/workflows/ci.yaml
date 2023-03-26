@@ -18,6 +18,7 @@ jobs:
     steps:
       - run: if cmp -s "res_pr4_test_et.txt" "res_pr4_test_et.txt"; then
           echo "Test passed";
+          else exit 1;
           fi
         shell: sh
       
