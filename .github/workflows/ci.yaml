@@ -13,7 +13,7 @@ jobs:
         shell: sh
       - run: if cmp -s res_pr4_test.txt res_pr4_test_et.txt; 
           then echo "Test passed";
-          else cat res_pr4_test.txt && echo !!!!!!!! && cat res_pr4_test_et.txt;
+          else exit 1;
           fi
         shell: sh
       
