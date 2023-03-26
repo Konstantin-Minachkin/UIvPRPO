@@ -19,5 +19,4 @@ jobs:
       - run: |
           if cmp -s "res_pr4_test_et.txt" "res_pr4_test_et.txt"; then
           printf 'Test passed'
-      - run: echo 'test_ET ${{ hashFiles() }}' && echo 'test ${{ hashFiles('res_pr4_test_et.txt') }}'
       
