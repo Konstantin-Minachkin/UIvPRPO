@@ -2,10 +2,10 @@ import re
 
 country_code = '1'
 file_name = "pr4_test.txt"
-# pattern = r'\+\d{11}'
+pattern = r'\+\d{11}'
 # общий паттерн для поиска номеров телефона
 # не искпользовал ([\s\n\-\(\)]*\d){10}, а просто скопировал 10 раз, тк со скобками не работает поиск корректно
-pattern = r'\+?[\s\n\-\(\)]*\d?[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d'
+# pattern = r'\+?[\s\n\-\(\)]*\d?[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d[\s\n\-\(\)]*\d'
 
 
 def get_digits(text):
@@ -30,10 +30,6 @@ with open(file_name, mode="r", encoding="utf-8") as file:
             new_num = new_num + '('+num[0:3]+')'+num[3:6]+'-'+num[6:8]+'-'+num[8:]
         else:
             new_num = new_num + '('+num[1:4]+')'+num[4:7]+'-'+num[7:9]+'-'+num[9:]
-        # print('number', number)
-        # print('num', num)
-        # print('new_num', new_num)
-        # print()
         text = text.replace(number, new_num)
 
     # save to file
