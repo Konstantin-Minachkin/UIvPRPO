@@ -18,14 +18,13 @@ jobs:
         shell: sh
 
   code_analise:
-    needs: simple-test
     runs-on: ubuntu-latest
     steps:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
           args: >
-            -Dsonar.organization=konstantin-minochkin
+            -Dsonar.organization=konstantin-minachkin
             -Dsonar.projectKey=Konstantin-Minachkin_UIvPRPO
             -Dsonar.sources=.
         env:
