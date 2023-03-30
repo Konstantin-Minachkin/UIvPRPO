@@ -16,8 +16,7 @@ def get_digits(text):
     return num
 
 
-with open(file_name, mode="r", encoding="utf-8") as file:
-    text = file.read()
+def change_num(text):
     res = re.findall(pattern, text)
     print('Res', res)
     for number in res:
@@ -31,8 +30,13 @@ with open(file_name, mode="r", encoding="utf-8") as file:
         else:
             new_num = new_num + '('+num[1:4]+')'+num[4:7]+'-'+num[7:9]+'-'+num[9:]
         text = text.replace(number, new_num)
+    return text
 
+
+with open(file_name, mode="r", encoding="utf-8") as file:
+    text = file.read()
+    new_text = change_num(text)
     # save to file
     new_file = open('res_'+file_name, mode="w", encoding="utf-8")
-    new_file.write(text)
+    new_file.write(new_text)
     new_file.close()
