@@ -30,8 +30,7 @@ jobs:
         with:
           github-token: ${{ secrets.GIT_TOKEN }}
           path-to-lcov: coverage.lcov
-        env:
-          NODE_COVERALLS_DEBUG: 1
+
         
 
   code_analise:
