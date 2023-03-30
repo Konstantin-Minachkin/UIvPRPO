@@ -12,9 +12,10 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install -U pip &&
-          pip install -U pytest
-      - run: |
-          pytest pr4_pytest.py
+          pip install -U pytest coverage
+      - name: Test programm
+        run: |
+          coverage run -m pytest pr4_pytest.py
       - run: |
           python3 pr4.py
       - run: if cmp -s res_pr4_test.txt res_pr4_test_et.txt; 
@@ -22,6 +23,14 @@ jobs:
           else exit 1;
           fi
         shell: sh
+      - name: Coveral analise
+        run: |
+          coverage lcov
+      - uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GIT_TOKEN }}
+          path-to-lcov: coverage.lcov
+        
 
   code_analise:
     runs-on: ubuntu-latest
